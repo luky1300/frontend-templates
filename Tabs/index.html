@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabs</title>
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+      }
+
+      main {
+        max-width: 80%;
+        margin: 0 auto;
+      }
+
+      .tabsList {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: inline-flex;
+        border: 0.5px solid #ccc;
+        border-radius: 5px 5px 0 0;
+        border-bottom: none;
+      }
+
+      .tabLabel {
+        border-right: 0.5px solid #ccc;
+        padding: 1em;
+        text-transform: uppercase;
+      }
+
+      .tabsList:last-child {
+        border-right: none;
+      }
+
+      .tabContent {
+        margin: 0;
+        padding: 2em;
+        border: 0.5px solid #ccc;
+        border-radius: 0 5px 5px 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Tabbed Content</h1>
+      <section id="tabs"></section>
+    </main>
+  </body>
+  <script>
+    const TAB_CONTENT = [
+      {
+        label: "Description",
+        content: "The worlds fastest fidget spinner",
+      },
+      {
+        label: "Specs",
+        content:
+          "Slime green, low friction ball bearings, with dual finger grips",
+      },
+      {
+        label: "Reviews",
+        content: "I have one. It's pretty good.",
+      },
+    ];
+
+    class Tabs {
+      constructor(el, content = [], activeIndex = 0) {
+        this.activeIndex = activeIndex;
+        this.content = content;
+
+        const nav = document.createElement("nav");
+        this.handleClick = this.handleClick.bind(this);
+        nav.addEventListener("click", this.handleClick);
+
+        const list = document.createElement("ul");
+        list.className = "tabsList";
+
+        content.forEach((tab, index) =>
+          list.insertAdjacentHTML(
+            "beforeend",
+            `<li tabindex=${index} class="tabLabel">${tab.label}</li>`
+          )
+        );
+        nav.appendChild(list);
+
+        this.tabContent = document.createElement("article");
+        this.tabContent.className = "tabContent";
+        this.tabContent.innerHTML = content[activeIndex].content;
+
+        el.appendChild(nav);
+        el.appendChild(this.tabContent);
+      }
+
+      handleClick(e) {
+        const currentIndex = e.target.tabIndex;
+        this.tabContent.innerHTML = this.content[currentIndex].content;
+      }
+    }
+    const tabs = document.getElementById("tabs");
+    new Tabs(tabs, TAB_CONTENT);
+  </script>
+</html>
