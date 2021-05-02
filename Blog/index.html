@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+      }
+
+      header {
+        display: flex;
+        padding: 0;
+        align-items: center;
+        border-bottom: 0.5px solid #ccc;
+      }
+
+      .logo {
+        padding: 1em;
+        width: 50px;
+      }
+
+      .companyName {
+        padding: 1em;
+        margin: 0;
+        font-size: 1.3em;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: row;
+        flex-grow: 1;
+      }
+
+      .posts {
+        flex-grow: 1;
+        background-color: lightgray;
+      }
+
+      .post {
+        margin: 1em auto;
+        background-color: white;
+        border: 0.5px solid darkgrey;
+        border-radius: 5px;
+        max-width: 500px;
+        padding: 1em;
+      }
+
+      .postTitle {
+        font-size: 2em;
+        color: green;
+        text-transform: uppercase;
+      }
+
+      .postContent {
+        color: darkgrey;
+      }
+
+      nav {
+        flex: 0 0 20%;
+        border-right: 0.5px solid #ccc;
+      }
+
+      .sidebarLinks {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .navLinks {
+        padding: 2em;
+        border-bottom: 0.5px solid #ccc;
+        color: #ccc;
+      }
+
+      .adds {
+        flex: 0 0 10%;
+        border-left: 0.5px solid #ccc;
+      }
+
+      .ad {
+        padding: 2em;
+        margin: 1em;
+        text-align: center;
+        border: 0.5px solid #ccc;
+      }
+
+      footer {
+        border-top: 0.5px solid #ccc;
+        background-color: black;
+      }
+
+      .footerLinks {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        padding: 1em;
+      }
+      .footerLink {
+        color: white;
+        margin: 0.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <img
+        class="logo"
+        src="https://www.acefrontend.com/c/layout/holy-grail-logo.svg"
+      />
+      <span class="companyName">Gary's Gardening Tips</span>
+    </header>
+    <div class="container">
+      <nav>
+        <ul class="sidebarLinks">
+          <li class="navLinks">Link</li>
+          <li class="navLinks">Link</li>
+          <li class="navLinks">Link</li>
+          <li class="navLinks">Link</li>
+          <li class="navLinks">Link</li>
+        </ul>
+      </nav>
+      <main class="posts">
+        <article class="post">
+          <span class="postTitle">Blog Post 1</span>
+          <p class="postContent">This is a post content</p>
+        </article>
+        <article class="post">
+          <span class="postTitle">Blog Post 1</span>
+          <p class="postContent">This is a post content</p>
+        </article>
+        <article class="post">
+          <span class="postTitle">Blog Post 1</span>
+          <p class="postContent">This is a post content</p>
+        </article>
+      </main>
+      <aside class="adds">
+        <div class="ad">AD</div>
+        <div class="ad">AD</div>
+      </aside>
+    </div>
+    <footer>
+      <ul class="footerLinks">
+        <li class="footerLink">About</li>
+        <li class="footerLink">Contact</li>
+        <li class="footerLink">Terms of Service</li>
+        <li class="footerLink">Privacy Policy</li>
+      </ul>
+    </footer>
+  </body>
+</html>
